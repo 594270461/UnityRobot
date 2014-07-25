@@ -100,7 +100,7 @@ namespace UnityRobot
 	public class ToneModule : ModuleProxy
 	{
 		private ToneNote _note;
-		
+
 		void Awake()
 		{
 		}

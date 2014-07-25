@@ -168,6 +168,7 @@ GameObject:
   - 4: {fileID: 899019175}
   - 114: {fileID: 899019173}
   - 114: {fileID: 899019174}
+  - 114: {fileID: 899019176}
   m_Layer: 0
   m_Name: UnityRobot
   m_TagString: Untagged
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robot: {fileID: 899019173}
-  tone: {fileID: 1792611082}
+  midi: {fileID: 899019176}
 --- !u!4 &899019175
 Transform:
   m_ObjectHideFlags: 0
@@ -218,6 +219,20 @@ Transform:
   - {fileID: 1792611081}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &899019176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899019172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a93bed531c40184cbea79b9353e4fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midi: {fileID: 4900000, guid: 85917c6a3f244f84096bc647a2ee165b, type: 3}
+  tone: {fileID: 1792611082}
+  tracks: []
 --- !u!1 &1792611080
 GameObject:
   m_ObjectHideFlags: 0
