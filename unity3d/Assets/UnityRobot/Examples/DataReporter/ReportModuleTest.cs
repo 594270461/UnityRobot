@@ -30,7 +30,7 @@ public class ReportModuleTest : MonoBehaviour
 		
 	}
 
-	void OnRenderObject()
+	void OnPostRender()
 	{
 		// Draw graph
 		float intervalX = screenRect.width / reporter.maxDataNum;
@@ -54,7 +54,7 @@ public class ReportModuleTest : MonoBehaviour
 		GL.Vertex3(screenRect.x + screenRect.width, screenRect.y + screenRect.height * 0.5f, distance);
 
 
-		GL.Color(Color.red);
+		GL.Color(Color.yellow);
 		for(int i=0; i<data.Length; i++)
 		{
 			if(i == (data.Length - 1))

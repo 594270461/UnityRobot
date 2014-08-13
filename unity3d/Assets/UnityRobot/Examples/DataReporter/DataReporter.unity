@@ -177,7 +177,7 @@ MonoBehaviour:
     x: -6
     y: -4.5
     width: 12
-    height: 8
+    height: 6.5
   distance: 5
   lineMaterial: {fileID: 2100000, guid: 34cce3f7b94448749a5719a8a78cd5ea, type: 2}
 --- !u!1 &636317607
