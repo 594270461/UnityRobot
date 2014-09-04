@@ -59,15 +59,17 @@ public class ReportModuleTest : MonoBehaviour
 		{
 			if(i == (data.Length - 1))
 			{
-				GL.Vertex3(screenRect.x + (data.Length - i) * intervalX, screenRect.y + (screenRect.height - data[i] * scaleValue), distance);
+				GL.Vertex3(screenRect.x + (data.Length - i) * intervalX, screenRect.y + (screenRect.height * 0.5f) + data[i] * scaleValue, distance);
 				GL.Vertex3(screenRect.x, screenRect.y + (screenRect.height * 0.5f), distance);
 			}
 			else
 			{
-				GL.Vertex3(screenRect.x + (data.Length - i) * intervalX, screenRect.y + (screenRect.height - data[i] * scaleValue), distance);
-				GL.Vertex3(screenRect.x + (data.Length - (i + 1)) * intervalX, screenRect.y + (screenRect.height - data[i + 1] * scaleValue), distance);
+				GL.Vertex3(screenRect.x + (data.Length - i) * intervalX, screenRect.y + (screenRect.height * 0.5f) + data[i] * scaleValue, distance);
+				GL.Vertex3(screenRect.x + (data.Length - (i + 1)) * intervalX, screenRect.y + (screenRect.height * 0.5f) +  data[i + 1] * scaleValue, distance);
 			}
 		}
+		if(data.Length > 0)
+			Debug.Log(data[data.Length - 1]);
 
 		GL.End();
 	}
