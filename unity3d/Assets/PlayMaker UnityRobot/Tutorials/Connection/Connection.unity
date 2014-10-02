@@ -391,9 +391,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: f7730d9b
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 94495ee1
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -416,16 +415,15 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0500000012000000100000000f0000001700000017000000
+        paramDataType: 12000000100000000f0000001700000017000000
         paramName:
-        - robotProxy
         - portName
         - baudrate
         - timeoutSec
         - connectedEvent
         - connectionFailedEvent
-        paramDataPos: 000000000000000000000000050000000a0000001e000000
-        paramByteDataSize: 00000000000000000500000005000000140000001c000000
+        paramDataPos: 0000000000000000050000000a0000001e000000
+        paramByteDataSize: 000000000500000005000000140000001c000000
     - name: Run
       description: 
       colorIndex: 0
@@ -473,9 +471,8 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 000000000c000000
-        actionHashCodes: 4cc8fcef4911bc19
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 4cc8fcef0c85f1bf
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -517,7 +514,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1700000011000000210000001200000012000000120000001e0000000f0000000f0000000f0000000f00000011000000050000001700000017000000
+        paramDataType: 1700000011000000210000001200000012000000120000001e0000000f0000000f0000000f0000000f000000110000001700000017000000
         paramName:
         - sendEvent
         - storeButtonState
@@ -531,11 +528,10 @@ MonoBehaviour:
         - width
         - height
         - normalized
-        - robotProxy
         - disconnectedEvent
         - updatedEvent
-        paramDataPos: 0000000008000000000000000000000001000000020000000a0000001b00000020000000250000002a0000002f000000000000003100000048000000
-        paramByteDataSize: 080000000200000000000000000000000000000000000000110000000500000005000000050000000500000002000000000000001700000012000000
+        paramDataPos: 0000000008000000000000000000000001000000020000000a0000001b00000020000000250000002a0000002f0000003100000048000000
+        paramByteDataSize: 0800000002000000000000000000000000000000000000001100000005000000050000000500000005000000020000001700000012000000
     - name: Disconnect
       description: 
       colorIndex: 0
@@ -565,9 +561,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: bd8d8ca1
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: c631a949
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -584,9 +579,9 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 05000000
+        paramDataType: 17000000
         paramName:
-        - robotProxy
+        - disconnectedEvent
         paramDataPos: 00000000
         paramByteDataSize: 00000000
     - name: Update
@@ -667,9 +662,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: b006e652
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 0d583039
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -687,13 +681,12 @@ MonoBehaviour:
         - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 050000000c00000017000000
+        paramDataType: 0c00000017000000
         paramName:
-        - robotProxy
         - portNames
         - searchCompletedEvent
-        paramDataPos: 000000000000000000000000
-        paramByteDataSize: 000000000000000014000000
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000014000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -745,7 +738,7 @@ MonoBehaviour:
     EnableDebugFlow: 0
     StepFrame: 0
     activeStateName: 
-  fsmTemplate: {fileID: 0}
+  fsmTemplate: {fileID: 11400000, guid: 53c71fcbd26910647acefd5965543b8c, type: 2}
 --- !u!1 &659898487
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,29 +9,42 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class RobotProxyUpdate : FsmStateAction
 	{
-		public RobotProxy robotProxy;
-		
 		[Tooltip("Disconnected Event")]
 		public FsmEvent disconnectedEvent;
 		
 		[Tooltip("Updated Event")]
 		public FsmEvent updatedEvent;
 		
-		
-		public override void Awake ()
-		{
-			base.Awake ();
+		private RobotProxy _robotProxy;
 
-			if(robotProxy != null)
+
+		public override void OnEnter()
+		{
+			_robotProxy = Owner.GetComponent<RobotProxy>();
+			if(_robotProxy == null)
+				Debug.LogWarning("There exist no RobotProxy!");
+			else
 			{
-				robotProxy.OnDisconnected += OnDisconnected;
-				robotProxy.OnUpdated += OnUpdated;
+				_robotProxy.OnDisconnected += OnDisconnected;
+				_robotProxy.OnUpdated += OnUpdated;
+			}
+		}
+
+		public override void OnExit ()
+		{
+			base.OnExit ();
+			
+			if(_robotProxy != null)
+			{
+				_robotProxy.OnDisconnected -= OnDisconnected;
+				_robotProxy.OnUpdated -= OnUpdated;
+				
 			}
 		}
 		
 		void OnDisconnected(object sender, EventArgs e)
 		{
-			Fsm.Event(disconnectedEvent);
+			Fsm.BroadcastEvent(disconnectedEvent);
 			Finish();
 		}
 		

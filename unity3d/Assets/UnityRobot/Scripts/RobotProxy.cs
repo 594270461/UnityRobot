@@ -326,7 +326,7 @@ namespace UnityRobot
 #else
 			try
 			{
-				_serialPort.PortName = portName;
+				_serialPort.PortName = "//./" + portName;
 				_serialPort.BaudRate = baudrate;
 				_serialPort.Open();
 				if(_serialPort.IsOpen == true)

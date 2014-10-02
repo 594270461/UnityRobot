@@ -396,9 +396,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: f7730d9b
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 94495ee1
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -421,16 +420,15 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0500000012000000100000000f0000001700000017000000
+        paramDataType: 12000000100000000f0000001700000017000000
         paramName:
-        - robotProxy
         - portName
         - baudrate
         - timeoutSec
         - connectedEvent
         - connectionFailedEvent
-        paramDataPos: 000000000000000000000000050000000a0000001e000000
-        paramByteDataSize: 00000000000000000500000005000000140000001c000000
+        paramDataPos: 0000000000000000050000000a0000001e000000
+        paramByteDataSize: 000000000500000005000000140000001c000000
     - name: Run
       description: 
       colorIndex: 0
@@ -478,9 +476,8 @@ MonoBehaviour:
         actionEnabled: 0101
         actionIsOpen: 0101
         actionStartIndex: 000000000c000000
-        actionHashCodes: 4cc8fcef4911bc19
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 4cc8fcef0c85f1bf
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -522,7 +519,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1700000011000000210000001200000012000000120000001e0000000f0000000f0000000f0000000f00000011000000050000001700000017000000
+        paramDataType: 1700000011000000210000001200000012000000120000001e0000000f0000000f0000000f0000000f000000110000001700000017000000
         paramName:
         - sendEvent
         - storeButtonState
@@ -536,11 +533,10 @@ MonoBehaviour:
         - width
         - height
         - normalized
-        - robotProxy
         - disconnectedEvent
         - updatedEvent
-        paramDataPos: 0000000008000000000000000000000001000000020000000a0000001b00000020000000250000002a0000002f000000000000003100000048000000
-        paramByteDataSize: 080000000200000000000000000000000000000000000000110000000500000005000000050000000500000002000000000000001700000012000000
+        paramDataPos: 0000000008000000000000000000000001000000020000000a0000001b00000020000000250000002a0000002f0000003100000048000000
+        paramByteDataSize: 0800000002000000000000000000000000000000000000001100000005000000050000000500000005000000020000001700000012000000
     - name: Disconnect
       description: 
       colorIndex: 0
@@ -570,9 +566,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: bd8d8ca1
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: c631a949
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -589,9 +584,9 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 05000000
+        paramDataType: 17000000
         paramName:
-        - robotProxy
+        - disconnectedEvent
         paramDataPos: 00000000
         paramByteDataSize: 00000000
     - name: Update
@@ -672,9 +667,8 @@ MonoBehaviour:
         actionEnabled: 01
         actionIsOpen: 01
         actionStartIndex: 00000000
-        actionHashCodes: b006e652
-        unityObjectParams:
-        - {fileID: 527641356}
+        actionHashCodes: 0d583039
+        unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
         animationCurveParams: []
@@ -692,13 +686,12 @@ MonoBehaviour:
         - HutongGames.PlayMaker.FsmString
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 050000000c00000017000000
+        paramDataType: 0c00000017000000
         paramName:
-        - robotProxy
         - portNames
         - searchCompletedEvent
-        paramDataPos: 000000000000000000000000
-        paramByteDataSize: 000000000000000014000000
+        paramDataPos: 0000000000000000
+        paramByteDataSize: 0000000014000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -750,7 +743,7 @@ MonoBehaviour:
     EnableDebugFlow: 0
     StepFrame: 0
     activeStateName: 
-  fsmTemplate: {fileID: 0}
+  fsmTemplate: {fileID: 11400000, guid: 53c71fcbd26910647acefd5965543b8c, type: 2}
 --- !u!1 &659898487
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,243 +848,21 @@ MonoBehaviour:
   fsm:
     usedInTemplate: {fileID: 0}
     name: FSM
-    startState: Ready
+    startState: State 1
     states:
-    - name: Ready
+    - name: State 1
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 69
-        y: 113
-        width: 166
-        height: 32
+        x: 50
+        y: 100
+        width: 100
+        height: 16
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: UnityRobot Connected
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Update
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.ModuleProxyReady
-        customNames:
-        - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: ef920298
-        unityObjectParams:
-        - {fileID: 1759670951}
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        byteData: 556e697479526f626f7420436f6e6e6563746564
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 0500000017000000
-        paramName:
-        - module
-        - connectedEvent
-        paramDataPos: 0000000000000000
-        paramByteDataSize: 0000000014000000
-    - name: Update
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 61
-        y: 223
-        width: 185
-        height: 64
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: UnityRobot Disconnected
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Ready
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: ADC Threshold Enter
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Threshold Enter
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      - fsmEvent:
-          name: ADC Threshold Exit
-          isSystemEvent: 0
-          isGlobal: 0
-        toState: Threshold Exit
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames:
-        - HutongGames.PlayMaker.Actions.ADCModuleUpdate
-        - HutongGames.PlayMaker.Actions.GUILabel
-        - HutongGames.PlayMaker.Actions.GUIHorizontalSlider
-        - HutongGames.PlayMaker.Actions.ConvertFloatToInt
-        - HutongGames.PlayMaker.Actions.ConvertIntToString
-        customNames:
-        - 
-        - 
-        - 
-        - 
-        - 
-        actionEnabled: 0101010101
-        actionIsOpen: 0101010101
-        actionStartIndex: 0000000006000000100000001b0000001f000000
-        actionHashCodes: bb15ddec84b16efcdecbec567908350f644845ec
-        unityObjectParams:
-        - {fileID: 1759670951}
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams:
-        - useVariable: 1
-          name: StringAnalogValue
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: horizontalslider
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: horizontalsliderthumb
-        - useVariable: 1
-          name: StringAnalogValue
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 
-        fsmObjectParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          typeName: 
-          value: {fileID: 0}
-        fsmVarParams: []
-        byteData: 00000000017468726573686f6c6456616c75650000000001616e616c6f6756616c7565556e697479526f626f7420446973636f6e6e6563746564414443205468726573686f6c6420456e746572414443205468726573686f6c6420457869740000000000000000000000000000000001cdcc4c3e00cdcc4c3e00cdcccc3d00cdcccc3d0001000000000001466c6f61745468726573686f6c6456616c7565000000000000c07f44000000000000000000000000000000000001cdcc4c3e009a99993e00cdcc4c3e00cdcccc3d0001000000000001466c6f61745468726573686f6c6456616c756500000000017468726573686f6c6456616c756502000000010000000001616e616c6f6756616c756501
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 050000001000000010000000170000001700000017000000210000001200000012000000120000001e0000000f0000000f0000000f0000000f000000110000000f0000000f0000000f00000012000000120000001e0000000f0000000f0000000f0000000f000000110000000f00000010000000070000000100000010000000120000001200000001000000
-        paramName:
-        - adcModule
-        - threshold
-        - analogValue
-        - disconnectedEvent
-        - enterThresholdEvent
-        - exitThresholdEvent
-        - image
-        - text
-        - tooltip
-        - style
-        - screenRect
-        - left
-        - top
-        - width
-        - height
-        - normalized
-        - floatVariable
-        - leftValue
-        - rightValue
-        - sliderStyle
-        - thumbStyle
-        - screenRect
-        - left
-        - top
-        - width
-        - height
-        - normalized
-        - floatVariable
-        - intVariable
-        - rounding
-        - everyFrame
-        - intVariable
-        - stringVariable
-        - format
-        - everyFrame
-        paramDataPos: 000000000000000013000000230000003a0000004d000000000000000000000001000000020000005f00000070000000750000007a0000007f00000084000000860000009e000000a30000000300000004000000a8000000b9000000be000000c3000000c8000000cd000000cf000000e7000000fa000000fe000000ff00000005000000060000000f010000
-        paramByteDataSize: 0000000013000000100000001700000013000000120000000000000000000000000000000000000011000000050000000500000005000000050000000200000018000000050000000500000000000000000000001100000005000000050000000500000005000000020000001800000013000000040000000100000010000000000000000000000001000000
-    - name: Threshold Enter
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 365
-        y: 192
-        width: 124
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Update
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
+      transitions: []
       actionData:
         actionNames: []
         customNames: []
@@ -1120,71 +891,7 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
-    - name: Threshold Exit
-      description: 
-      colorIndex: 0
-      position:
-        serializedVersion: 2
-        x: 369
-        y: 311
-        width: 114
-        height: 32
-      isBreakpoint: 0
-      isSequence: 0
-      hideUnused: 0
-      transitions:
-      - fsmEvent:
-          name: FINISHED
-          isSystemEvent: 1
-          isGlobal: 0
-        toState: Update
-        linkStyle: 0
-        linkConstraint: 0
-        colorIndex: 0
-      actionData:
-        actionNames: []
-        customNames: []
-        actionEnabled: 
-        actionIsOpen: 
-        actionStartIndex: 
-        actionHashCodes: 
-        unityObjectParams: []
-        fsmGameObjectParams: []
-        fsmOwnerDefaultParams: []
-        animationCurveParams: []
-        functionCallParams: []
-        fsmTemplateControlParams: []
-        fsmEventTargetParams: []
-        fsmPropertyParams: []
-        layoutOptionParams: []
-        fsmStringParams: []
-        fsmObjectParams: []
-        fsmVarParams: []
-        byteData: 
-        arrayParamSizes: 
-        arrayParamTypes: []
-        customTypeSizes: 
-        customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
-    events:
-    - name: FINISHED
-      isSystemEvent: 1
-      isGlobal: 0
-    - name: ADC Threshold Enter
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: ADC Threshold Exit
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: UnityRobot Connected
-      isSystemEvent: 0
-      isGlobal: 0
-    - name: UnityRobot Disconnected
-      isSystemEvent: 0
-      isGlobal: 0
+    events: []
     globalTransitions: []
     variables:
       floatVariables:
@@ -1235,4 +942,4 @@ MonoBehaviour:
     EnableDebugFlow: 0
     StepFrame: 0
     activeStateName: 
-  fsmTemplate: {fileID: 0}
+  fsmTemplate: {fileID: 11400000, guid: a7e5e54470532da42ac1b88c52cd1177, type: 2}

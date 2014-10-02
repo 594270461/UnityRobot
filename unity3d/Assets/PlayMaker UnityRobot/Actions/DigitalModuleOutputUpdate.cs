@@ -9,44 +9,40 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class DigitalModuleOutputUpdate : FsmStateAction
 	{
-		public DigitalModule digitalModule;
-		
 		[Tooltip("Digital Value")]
 		public FsmBool digitalValue;
 		
 		[Tooltip("Mode Changed Event")]
-		public FsmEvent modeChangedEvent;
-		
-		[Tooltip("Disconnected Event")]
-		public FsmEvent disconnectedEvent;
+		public FsmEvent modeChangedEvent;	
+
+
+		private DigitalModule _digitalModule;
 
 		
-		public override void Awake ()
+		public override void OnEnter ()
 		{
-			base.Awake ();
+			base.OnEnter ();
+			
+			_digitalModule = Owner.GetComponent<DigitalModule>();
+			if(_digitalModule == null)
+				Debug.LogWarning("There exist no DigitalModule!");
 		}
 		
 		public override void OnUpdate()
 		{
-			if(digitalModule.owner != null)
+			if(_digitalModule != null)
 			{
-				if(digitalModule.owner.Connected == false)
+				if(_digitalModule.mode != DigitalModule.Mode.OUTPUT)
 				{
-					Fsm.Event(disconnectedEvent);
+					Fsm.Event(modeChangedEvent);
 					Finish();
 				}
+				
+				if(digitalValue.Value == false)
+					_digitalModule.Value = 0;
+				else
+					_digitalModule.Value = 1;
 			}
-			
-			if(digitalModule.mode != DigitalModule.Mode.OUTPUT)
-			{
-				Fsm.Event(modeChangedEvent);
-				Finish();
-			}
-			
-			if(digitalValue.Value == false)
-				digitalModule.Value = 0;
-			else
-				digitalModule.Value = 1;
 		}
 	}
 }

@@ -9,8 +9,6 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class RobotProxyConnect : FsmStateAction
 	{
-		public RobotProxy robotProxy;
-
 		[Tooltip("Port name")]
 		public FsmString portName;
 
@@ -26,35 +24,47 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Connection Failed Event")]
 		public FsmEvent connectionFailedEvent;
 
+		private RobotProxy _robotProxy;
 
-		public override void Awake ()
-		{
-			base.Awake ();
-
-			if(robotProxy != null)
-			{
-				robotProxy.OnConnected += OnConnected;
-				robotProxy.OnConnectionFailed += OnConnectionFailed;
-			}
-		}
 
 		public override void OnEnter()
 		{
-			if(portName.UseVariable == true)
-				robotProxy.portName = portName.Value;
+			_robotProxy = Owner.GetComponent<RobotProxy>();
+			if(_robotProxy == null)
+				Debug.LogWarning("There exist no RobotProxy!");
+			else
+			{
+				_robotProxy.OnConnected += OnConnected;
+				_robotProxy.OnConnectionFailed += OnConnectionFailed;
 
-			if(baudrate.UseVariable == true)
-				robotProxy.baudrate = baudrate.Value;
+				if(portName.UseVariable == true)
+					_robotProxy.portName = portName.Value;
+				
+				if(baudrate.UseVariable == true)
+					_robotProxy.baudrate = baudrate.Value;
+				
+				if(timeoutSec.UseVariable == true)
+					_robotProxy.timeoutSec = timeoutSec.Value;
+				
+				_robotProxy.Connect();
+			}
+		}
 
-			if(timeoutSec.UseVariable == true)
-				robotProxy.timeoutSec = timeoutSec.Value;
+		public override void OnExit ()
+		{
+			base.OnExit ();
 
-			robotProxy.Connect();
+			if(_robotProxy != null)
+			{
+				_robotProxy.OnConnected -= OnConnected;
+				_robotProxy.OnConnectionFailed -= OnConnectionFailed;
+
+			}
 		}
 
 		void OnConnected(object sender, EventArgs e)
 		{
-			Fsm.Event(connectedEvent);
+			Fsm.BroadcastEvent(connectedEvent);
 			Finish();
 		}
 		

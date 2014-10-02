@@ -9,27 +9,27 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class PWMModuleUpdate : FsmStateAction
 	{
-		public PWMModule pwmModule;
-
 		[Tooltip("PWM Value")]
 		public FsmInt pwmValue;
 		
-		[Tooltip("Disconnected Event")]
-		public FsmEvent disconnectedEvent;		
+		private PWMModule _pwmModule;
+
+		public override void OnEnter ()
+		{
+			base.OnEnter ();
+			
+			_pwmModule = Owner.GetComponent<PWMModule>();
+			if(_pwmModule == null)
+				Debug.LogWarning("There exist no PWMModule!");
+		}
 
 		
 		public override void OnUpdate()
 		{
-			if(pwmModule.owner != null)
+			if(_pwmModule != null)
 			{
-				if(pwmModule.owner.Connected == false)
-				{
-					Fsm.Event(disconnectedEvent);
-					Finish();
-				}
+				_pwmModule.Value = pwmValue.Value;
 			}
-
-			pwmModule.Value = pwmValue.Value;
 		}
 	}
 }

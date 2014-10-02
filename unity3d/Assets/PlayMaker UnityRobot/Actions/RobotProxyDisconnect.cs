@@ -9,11 +9,21 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class RobotProxyDisconnect : FsmStateAction
 	{
-		public RobotProxy robotProxy;
-		
+		[Tooltip("Disconnected Event")]
+		public FsmEvent disconnectedEvent;
+
+		private RobotProxy _robotProxy;
+
+
 		public override void OnEnter()
 		{
-			robotProxy.Disconnect();
+			_robotProxy = Owner.GetComponent<RobotProxy>();
+			if(_robotProxy == null)
+				Debug.LogWarning("There exist no RobotProxy!");
+			else
+				_robotProxy.Disconnect();
+
+			Fsm.BroadcastEvent(disconnectedEvent);
 			Finish();
 		}
 	}

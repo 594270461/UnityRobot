@@ -9,33 +9,46 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class RobotProxySearch : FsmStateAction
 	{
-		public RobotProxy robotProxy;
-
 		[Tooltip("Port name list")]
 		public FsmString[] portNames;
 		
 		[Tooltip("Search Completed Event")]
 		public FsmEvent searchCompletedEvent;
 
-		
-		public override void Awake ()
-		{
-			base.Awake ();
+		private RobotProxy _robotProxy;
 
-			if(robotProxy != null)
-				robotProxy.OnSearchCompleted += OnSearchCompleted;
-		}
-		
+
 		public override void OnEnter()
 		{
-			robotProxy.PortSearch();
+			_robotProxy = Owner.GetComponent<RobotProxy>();
+			if(_robotProxy == null)
+				Debug.LogWarning("There exist no RobotProxy!");
+			else
+			{
+				_robotProxy.OnSearchCompleted += OnSearchCompleted;
+
+				_robotProxy.PortSearch();
+			}
+		}
+
+		public override void OnExit ()
+		{
+			base.OnExit ();
+			
+			if(_robotProxy != null)
+			{
+				_robotProxy.OnSearchCompleted -= OnSearchCompleted;
+			}
 		}
 		
 		void OnSearchCompleted(object sender, EventArgs e)
 		{
-			portNames = new FsmString[robotProxy.portNames.Count];
-			for(int i=0; i<robotProxy.portNames.Count; i++)
-				portNames[i] = robotProxy.portNames[i];
+			if(_robotProxy != null)
+			{
+				portNames = new FsmString[_robotProxy.portNames.Count];
+				for(int i=0; i<_robotProxy.portNames.Count; i++)
+					portNames[i] = _robotProxy.portNames[i];
+			}
 
 			Fsm.Event(searchCompletedEvent);
 			Finish();

@@ -9,66 +9,71 @@ namespace HutongGames.PlayMaker.Actions
 	[Tooltip("")]
 	public class DigitalModuleInputUpdate : FsmStateAction
 	{
-		public DigitalModule digitalModule;
-
 		[Tooltip("Digital Value")]
 		public FsmBool digitalValue;
 
 		[Tooltip("Mode Changed Event")]
 		public FsmEvent modeChangedEvent;
 
-		[Tooltip("Disconnected Event")]
-		public FsmEvent disconnectedEvent;
-		
 		[Tooltip("Signal Rising Event")]
 		public FsmEvent risingEvent;
 		
 		[Tooltip("Signal Falling Event")]
 		public FsmEvent fallingEvent;
+
+		private DigitalModule _digitalModule;
 		
-		
-		public override void Awake ()
+
+		public override void OnEnter ()
 		{
-			base.Awake ();
-			
-			if(digitalModule != null)
+			base.OnEnter ();
+
+			_digitalModule = Owner.GetComponent<DigitalModule>();
+			if(_digitalModule == null)
+				Debug.LogWarning("There exist no DigitalModule!");
+			else
 			{
-				digitalModule.OnRisingEdge += OnRisingEdge;
-				digitalModule.OnFallingEdge += OnFallingEdge;
+				_digitalModule.OnRisingEdge += OnRisingEdge;
+				_digitalModule.OnFallingEdge += OnFallingEdge;
 			}
 		}
 		
 		public override void OnUpdate()
 		{
-			if(digitalModule.owner != null)
+			if(_digitalModule != null)
 			{
-				if(digitalModule.owner.Connected == false)
+				if(_digitalModule.mode == DigitalModule.Mode.OUTPUT)
 				{
-					Fsm.Event(disconnectedEvent);
+					Fsm.Event(modeChangedEvent);
 					Finish();
 				}
-			}
 
-			if(digitalModule.mode == DigitalModule.Mode.OUTPUT)
+				if(_digitalModule.Value == 0)
+					digitalValue.Value = false;
+				else
+					digitalValue.Value = true;
+			}
+		}
+
+		public override void OnExit ()
+		{
+			base.OnExit ();
+
+			if(_digitalModule != null)
 			{
-				Fsm.Event(modeChangedEvent);
-				Finish();
+				_digitalModule.OnRisingEdge -= OnRisingEdge;
+				_digitalModule.OnFallingEdge -= OnFallingEdge;
 			}
-
-			if(digitalModule.Value == 0)
-				digitalValue.Value = false;
-			else
-				digitalValue.Value = true;
 		}
 		
 		void OnRisingEdge(object sender, EventArgs e)
 		{
-			Fsm.Event(risingEvent);
+			Fsm.BroadcastEvent(risingEvent);
 		}
 		
 		void OnFallingEdge(object sender, EventArgs e)
 		{
-			Fsm.Event(fallingEvent);
+			Fsm.BroadcastEvent(fallingEvent);
 		}
 	}
 }

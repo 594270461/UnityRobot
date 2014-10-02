@@ -2,7 +2,7 @@
 #include <DigitalModule.h>
 #include <ADCModule.h>
 
-DigitalModule button(0, 47);
+DigitalModule button(0, 8);
 ADCModule dial(1, A0);
 
 void OnUpdate(byte id)
