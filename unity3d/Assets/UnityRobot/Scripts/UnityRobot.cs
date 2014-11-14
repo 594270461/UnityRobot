@@ -285,16 +285,7 @@ namespace UnityRobot
 
 				// Check timeout
 				if(_timeout > timeoutSec) // wait until timeout seconds
-				{
-					if(_connected == false)
-					{
-						Disconnect();
-						if(OnConnectionFailed != null)
-							OnConnectionFailed(this, null);
-					}
-					else
-						ErrorDisconnect();
-				}
+					ErrorDisconnect();
 				else
 					_timeout += Time.deltaTime;
 			}
@@ -351,6 +342,7 @@ namespace UnityRobot
 
 		private void ErrorDisconnect()
 		{
+			bool state = _connected;
 			_connected = false;
 			_opened = false;
 			
@@ -368,8 +360,16 @@ namespace UnityRobot
 			foreach(UnityModule module in modules)
 				module.ModuleStop();
 
-			if(OnDisconnected != null)
-				OnDisconnected(this, null);
+			if(state == false)
+			{
+				if(OnConnectionFailed != null)
+					OnConnectionFailed(this, null);
+			}
+			else
+			{
+				if(OnDisconnected != null)
+					OnDisconnected(this, null);
+			}
 		}
 
 		public void Disconnect()

@@ -14,15 +14,15 @@ namespace UnityRobot
 
 		public int id;
 
-		public EventHandler OnConnected;
-		public EventHandler OnDisconnected;
+		public EventHandler OnStarted;
+		public EventHandler OnStopped;
 		public EventHandler OnUpdated;
 
 		private List<byte> _dataBytes = new List<byte>();
 		private const int _maxNumBytes = 116;
 		private byte _enableFlush;
 		private bool _updated;
-		private bool _connected = false;
+		private bool _started = false;
 
 		protected bool outputOnly = true;
 		protected bool canUpdate = false;
@@ -42,7 +42,7 @@ namespace UnityRobot
 		// Update is called once per frame
 		void Update ()
 		{
-			if(_connected == true)
+			if(_started == true)
 			{
 				OnUpdate();
 			}
@@ -71,9 +71,9 @@ namespace UnityRobot
 
 				canUpdate = false;
 				_dataBytes.Clear();
+				OnPush();
 				if(outputOnly == false)
 					Push(_enableFlush);
-				OnPush();
 
 				if(_dataBytes.Count == 0)
 					return null;
@@ -89,11 +89,11 @@ namespace UnityRobot
 			}
 		}
 
-		public bool Connected
+		public bool Started
 		{
 			get
 			{
-				return _connected;
+				return _started;
 			}
 		}
 
@@ -101,12 +101,12 @@ namespace UnityRobot
 		{
 			canUpdate = true;
 			_updated = false;
-			_connected = true;
+			_started = true;
 
 			OnModuleStart();
 
-			if(OnConnected != null)
-				OnConnected(this, null);
+			if(OnStarted != null)
+				OnStarted(this, null);
 		}
 
 		public void Action()
@@ -123,12 +123,12 @@ namespace UnityRobot
 
 		public void ModuleStop()
 		{
-			_connected = false;
+			_started = false;
 
 			OnModuleStop();
 			
-			if(OnDisconnected != null)
-				OnDisconnected(this, null);
+			if(OnStopped != null)
+				OnStopped(this, null);
 		}
 
 		protected bool Push(byte value)
