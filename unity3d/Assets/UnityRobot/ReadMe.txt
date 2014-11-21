@@ -2,10 +2,20 @@
 Guide Link(https://sites.google.com/site/unityrobotguide/)
 All right reserved Idealink(http://www.idealink.kr)
 [Release Note]
-*v1.0.0b4 (November/14/2014)
+*v1.0.0b5 (November/21/2014)
 <Arduino>
- -[Fix]DigitalPin - mode changing
+ -
 <Unity3D>
- -[Fix]DigitalPin - mode changing
+ -[Add]AnalogPinDrag
 <PlayMakerNGUI>
- -[Add]UnityPackage(First released)
+ -[Add]UnityModuleEvent
+ -[Add]AnalogPinDragEvent
+ -[Add]Template_UnityModule
+ -[Add]Template_AnalogPinDrag
+ -[Add]Example for Pot_RotatingObject
+ -[Add]Example for Pot_BallDefence
+ -[Add]Example for Pot_ProgressControl
+ -[Add]Example for SoftPot_ScalingObject
+ -[Add]Example for SoftPot_MultiButton
+ -[Add]Example for SoftPot_DraggingObject
+ -[Add]Example for SoftPot_ScrollbarControl
