@@ -546,6 +546,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
       propertyPath: m_LocalPosition.x
       value: .81602478
@@ -581,6 +585,14 @@ Prefab:
     - target: {fileID: 11400010, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portNames.Array.data[0]
+      value: COM4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portName
+      value: COM4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
@@ -734,10 +746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portNames:
-  - COM8
-  - COM11
-  - COM6
-  portName: COM6
+  - COM4
+  portName: COM4
   baudrate: 57600
   timeoutSec: 5
   modules:

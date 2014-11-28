@@ -81,6 +81,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
       propertyPath: m_LocalPosition.x
       value: .00347984978
@@ -128,6 +132,14 @@ Prefab:
     - target: {fileID: 11400010, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portNames.Array.data[0]
+      value: COM4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400040, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
+      propertyPath: portName
+      value: COM4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 903d71aab475e0741bef25efd2d2fa6e, type: 2}
@@ -3029,10 +3041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portNames:
-  - COM8
-  - COM11
-  - COM6
-  portName: COM6
+  - COM4
+  portName: COM4
   baudrate: 57600
   timeoutSec: 5
   modules:
@@ -3238,7 +3248,7 @@ Transform:
   m_GameObject: {fileID: 1810230625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00426439242, y: .00426439242, z: .00426439242}
+  m_LocalScale: {x: .00404040422, y: .00404040422, z: .00404040422}
   m_Children:
   - {fileID: 1999008073}
   - {fileID: 1605470895}
@@ -4373,7 +4383,6 @@ MonoBehaviour:
   analogPin: {fileID: 413782809}
   dragMinRatio: .100000001
   dragMaxRatio: .899999976
-  dragForceTolerance: .00100000005
   dragForceScaler: 1
 --- !u!4 &1827228365
 Transform:
